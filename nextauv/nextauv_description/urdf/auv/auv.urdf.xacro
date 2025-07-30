@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="my_robot">
+
+    <!-- body -->
+    <link name = "base_link">
+        <visual>
+            <geometry>
+                <mesh filename="../meshes/body.stl"/>
+            </geometry>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+        </visual>
+        <collision>
+            
+        </collision>
+        <inertia>
+
+        </inertia>
+    </link>
+    
+
+
+</robot>
