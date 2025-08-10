@@ -1,22 +1,66 @@
-<?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="my_robot">
+<xml version="1.0"?>
+<robot name="auv" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <!-- body -->
-    <link name = "base_link">
-        <visual>
-            <geometry>
-                <mesh filename="../meshes/body.stl"/>
-            </geometry>
-            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
-        </visual>
-        <collision>
-            
-        </collision>
-        <inertia>
+  <link name="base_link">
+    <visual>
+      <origin xyz="" rpy=""/>
+      <geometry>
+        <mesh filename="../meshes/body_auv.stl"/>
+      </geometry>
+      <material>
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
 
-        </inertia>
+    <collision>
+      <origin xyz="" rpy=""/>
+      <geometry>
+        <origin xyz="" rpy=""/>
+        <box size ="1 1 1"/>
+      </geometry>
+    </collision>
+
+    <inertia>
+      <origin xyz="" rpy=""/>
+      <mass value=""/>
+      <inertia ixx="" ixy="" ixz="" iyy="" iyz="" izz=""/>
+    </inertia>
+  </link>
+
+  <joint name="thrust_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="link_name"/>
+    <origin xyz="" rpy=""/>
+  </joint>
+
+
+  <xacro:macro name="name" params="name mesh xyz rpy mesh scale mass">
+
+    <link name="${name}_link">
+      <visual>
+        <origin xyz="${xyz}" rpy="${rpy}"/>
+        <geometry>
+          <mesh filename="../meshes/"/>
+        </geometry>
+        <material>
+          <color rgba="0 0 1 1"/>
+        </material>
+      </visual>
+      
+      <collision>
+        <origin xyz="${xyz}" rpy="${rpy}"/>
+        <geometry>
+          <origin xyz="${xyz}" rpy="${rpy}"/>
+          <box size ="1 1 1"/>
+        </geometry>
+      </collision>
+
+      <inertia>
+        <origin xyz="${xyz}" rpy="${rpy}"/>
+        <mass value=""/>
+        <inertia ixx="" ixy="" ixz="" iyy="" iyz="" izz=""/>
+      </inertia>
     </link>
-    
 
-
+  </xacro:macro>
 </robot>
