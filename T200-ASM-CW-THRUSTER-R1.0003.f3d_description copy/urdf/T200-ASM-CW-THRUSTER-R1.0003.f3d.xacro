@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<robot name="T200-ASM-CW-THRUSTER-R1.0003.f3d" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find T200-ASM-CW-THRUSTER-R1.0003.f3d_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find T200-ASM-CW-THRUSTER-R1.0003.f3d_description)/urdf/T200-ASM-CW-THRUSTER-R1.0003.f3d.trans" />
+<xacro:include filename="$(find T200-ASM-CW-THRUSTER-R1.0003.f3d_description)/urdf/T200-ASM-CW-THRUSTER-R1.0003.f3d.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="1.8918632576612529e-07 -0.0005296019892087875 0.0041668082919514215" rpy="0 0 0"/>
+    <mass value="0.1799349505955563"/>
+    <inertia ixx="0.00016" iyy="0.000156" izz="0.000177" ixy="-0.0" iyz="-1e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://T200-ASM-CW-THRUSTER-R1.0003.f3d_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://T200-ASM-CW-THRUSTER-R1.0003.f3d_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Component1_1">
+  <inertial>
+    <origin xyz="-7.645665748929687e-09 4.203217032496231e-08 0.011172040778443974" rpy="0 0 0"/>
+    <mass value="0.00795796741725928"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="4e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.0 0.0045" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://T200-ASM-CW-THRUSTER-R1.0003.f3d_description/meshes/Component1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.0 0.0045" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://T200-ASM-CW-THRUSTER-R1.0003.f3d_description/meshes/Component1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 1" type="continuous">
+  <origin xyz="0.0 0.0 -0.0045" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Component1_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+</robot>

@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find T200-ASM-CW-THRUSTER-R1.0003.f3d_description)/launch/controller.yaml" command="load"/>
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="T200-ASM-CW-THRUSTER-R1.0003.f3d" args="Revolute 1_position_controller joint_state_controller "/>
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/T200-ASM-CW-THRUSTER-R1.0003.f3d/joint_states"/>
+</node>
+
+</launch>
